@@ -1,0 +1,4 @@
+install:
+  - curl http://www.rust-lang.org/rustup.sh | sudo sh -
+script:
+  - cargo build --verbose && ! rustc -L target examples/basic.rs

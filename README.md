@@ -1,5 +1,7 @@
 # compile_msg
 
+[![Build Status](https://travis-ci.org/huonw/compile_msg.png)](https://travis-ci.org/huonw/compile_msg)
+
 A syntax extension for emitting messages at compile time, via the
 compiler, similar to `#warning` and `#error` in the C
 preprocessor. Four macros are provided (in order of increasing
