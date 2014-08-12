@@ -7,7 +7,7 @@ compiler, similar to `#warning` and `#error` in the C
 preprocessor. Four macros are provided (in order of increasing
 severity):
 
-- `compile_note`: tell the user a tidbit of information without imply it is a problem,
+- `compile_note`: tell the user a tidbit of information without implying it is a problem,
 - `compile_warning`: tell the user that something could go wrong,
 - `compile_error`: tell the user about some error, compilation will
   not stop immediately, but will halt before any compiler passes after
