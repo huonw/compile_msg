@@ -25,7 +25,7 @@ pub fn plugin_registrar(reg: &mut Registry) {
                 $(
                     reg.register_macro($name, {
                         fn f(cx: &mut ExtCtxt, sp: Span,
-                             args: &[ast::TokenTree]) -> Box<base::MacResult> {
+                             args: &[ast::TokenTree]) -> Box<base::MacResult+'static> {
                             expand_msg($sev, cx, sp, args)
                         }
                         f
@@ -44,7 +44,7 @@ pub fn plugin_registrar(reg: &mut Registry) {
 }
 
 fn expand_msg(sev: Severity,
-              cx: &mut ExtCtxt, sp: Span, args: &[ast::TokenTree]) -> Box<base::MacResult> {
+              cx: &mut ExtCtxt, sp: Span, args: &[ast::TokenTree]) -> Box<base::MacResult+'static> {
     // copied from syntax::ext::concat.
     let es = match base::get_exprs_from_tts(cx, sp, args) {
         Some(e) => e,
