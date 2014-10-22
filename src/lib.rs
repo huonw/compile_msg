@@ -51,7 +51,7 @@ fn expand_msg(sev: Severity,
         None => return base::DummyResult::expr(sp)
     };
     let mut accumulator = String::new();
-    for e in es.move_iter() {
+    for e in es.into_iter() {
         match e.node {
             ast::ExprLit(ref lit) => {
                 match lit.node {
@@ -61,7 +61,7 @@ fn expand_msg(sev: Severity,
                         accumulator.push_str(s.get());
                     }
                     ast::LitChar(c) => {
-                        accumulator.push_char(c);
+                        accumulator.push(c);
                     }
                     ast::LitInt(i, ast::UnsignedIntLit(_)) |
                     ast::LitInt(i, ast::SignedIntLit(_, ast::Plus)) |
