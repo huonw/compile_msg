@@ -72,7 +72,6 @@ fn expand_msg(sev: Severity,
                     ast::LitInt(i, ast::UnsuffixedIntLit(ast::Minus)) => {
                         accumulator.push_str(format!("-{}", i).as_slice());
                     }
-                    ast::LitNil => {}
                     ast::LitBool(b) => {
                         accumulator.push_str(format!("{}", b).as_slice());
                     }
