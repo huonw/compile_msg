@@ -10,6 +10,8 @@ use syntax::ext::base;
 use syntax::ext::base::{ExtCtxt, DummyResult};
 use rustc::plugin::Registry;
 
+use Severity::{Note, Warning, Error, Fatal};
+
 enum Severity {
     Note,
     Warning,
