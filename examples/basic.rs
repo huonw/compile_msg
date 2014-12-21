@@ -3,7 +3,7 @@
 #[phase(plugin)] extern crate compile_msg;
 
 #[cfg(rare)]
-compile_note!("only emitted with --cfg rate")
+compile_note!("only emitted with --cfg rate");
 
 fn main() {
     compile_note!("useful information: ", 1, " instance");

@@ -40,7 +40,7 @@ and then load the syntax in the normal manner:
 #[phase(plugin)] extern crate compile_msg;
 
 #[cfg(target_os = "hal")]
-compile_error!("I'm sorry, Dave, I'm afraid I can't do that.")
+compile_error!("I'm sorry, Dave, I'm afraid I can't do that.");
 
 
 fn main() {
