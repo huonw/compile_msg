@@ -1,5 +1,6 @@
-#![feature(plugin_registrar, macro_rules)]
+#![feature(plugin_registrar)]
 #![crate_type = "dylib"]
+#![allow(unstable)]
 
 extern crate syntax;
 extern crate rustc;

@@ -1,6 +1,6 @@
-#![feature(phase)]
+#![feature(plugin)]
 
-#[phase(plugin)] extern crate compile_msg;
+#[plugin] extern crate compile_msg;
 
 #[cfg(rare)]
 compile_note!("only emitted with --cfg rate");
