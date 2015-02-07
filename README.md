@@ -25,19 +25,19 @@ appropriate `#[cfg]` attribute.
 
 ## Usage
 
-Ensure your `Cargo.toml` contains
+Ensure your `Cargo.toml` contains:
 
 ```toml
-[dependencies.compile_msg]
-git = "https://github.com/huonw/compile_msg"
+[dependencies]
+compile_msg = "0"
 ```
 
 and then load the syntax in the normal manner:
 
 ```rust
-#![feature(phase)]
+#![feature(plugin)]
 
-#[phase(plugin)] extern crate compile_msg;
+#[plugin] extern crate compile_msg;
 
 #[cfg(target_os = "hal")]
 compile_error!("I'm sorry, Dave, I'm afraid I can't do that.");
