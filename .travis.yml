@@ -2,3 +2,5 @@ language: rust
 sudo: false
 script:
   - cargo build --verbose && ! rustc -L target examples/basic.rs
+notifications:
+    webhooks: http://huon.me:54856/travis
