@@ -1,6 +1,6 @@
 #![feature(plugin_registrar)]
 #![crate_type = "dylib"]
-#![feature(rustc_private, core)]
+#![feature(rustc_private)]
 
 extern crate syntax;
 extern crate rustc;
@@ -69,14 +69,14 @@ fn expand_msg(sev: Severity,
                     ast::LitInt(i, ast::UnsignedIntLit(_)) |
                     ast::LitInt(i, ast::SignedIntLit(_, ast::Plus)) |
                     ast::LitInt(i, ast::UnsuffixedIntLit(ast::Plus)) => {
-                        accumulator.push_str(format!("{}", i).as_slice());
+                        accumulator.push_str(&format!("{}", i));
                     }
                     ast::LitInt(i, ast::SignedIntLit(_, ast::Minus)) |
                     ast::LitInt(i, ast::UnsuffixedIntLit(ast::Minus)) => {
-                        accumulator.push_str(format!("-{}", i).as_slice());
+                        accumulator.push_str(&format!("-{}", i));
                     }
                     ast::LitBool(b) => {
-                        accumulator.push_str(format!("{}", b).as_slice());
+                        accumulator.push_str(&format!("{}", b));
                     }
                     ast::LitByte(..) |
                     ast::LitBinary(..) => {
@@ -93,7 +93,7 @@ fn expand_msg(sev: Severity,
     macro_rules! emit {
         ($($sev: ident => $method: ident),*) => {
             match sev {
-                $($sev => cx.$method(sp, accumulator.as_slice()),)*
+                $($sev => cx.$method(sp, &accumulator),)*
             }
         }
     }
